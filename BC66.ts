@@ -1,7 +1,7 @@
 /**
  * BC66 blocks
  */
-//% weight=100 color=#e60073 icon="\uf1d8" block="BC66"
+//% weight=100 color=#e60073 icon="\f519" block="BC66"
 namespace BC66 {
     const DEBUG = false
     const enum NbiotEvents {
@@ -18,9 +18,9 @@ namespace BC66 {
     const connectCallbacks: (() => void)[] = []
 
     /**
-     * Connect to the NB-IoT module
+     * Connect to the BC66 NB-IoT module
      * This involves opening a serial connection on chosen pins and connect to the
-     * NB-IoT network.
+     * BC66 NB-IoT network.
      * @param rx The pin that is connected to RXD on BC66, eg: SerialPin.P0
      * @param tx The pin that is connected to TXD on BC66, eg: SerialPin.P1
      */
@@ -293,7 +293,8 @@ namespace BC66 {
     //% block
     //% advanced=true
     export function createSocket() {
-        writeCommand(`AT+NSOCR="DGRAM",17,1234,1`)
+        writeCommand(`AT+QSOC=1,2,1`)
+        writeCommand(`AT+QSOCON=0,41234,"188.166.45.215"`)
         socket = parseInt(readLine())
     }
 
