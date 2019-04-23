@@ -1,5 +1,5 @@
 /**
- * BC66_NB blocks
+ * BC66 blocks
  */
 //% weight=100 color=#1eadf8 icon="\uf1d8" block="BC66"
 namespace BC66 {
