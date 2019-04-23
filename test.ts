@@ -1,1 +1,19 @@
-// tests go here; this will not be compiled when this package is used as a library
+nbiot.onConnected(function () {
+    basic.showIcon(IconNames.Happy)
+})
+
+input.onButtonPressed(Button.A, function () {
+    nbiot.sendNumber(123)
+})
+
+input.onButtonPressed(Button.B, function () {
+    nbiot.sendString("Hello")
+})
+
+basic.forever(function () {
+    nbiot.sendString("" + input.temperature())
+    basic.pause(60000)
+})
+
+basic.showIcon(IconNames.Sad)
+nbiot.connect(SerialPin.P0, SerialPin.P1)// tests go here; this will not be compiled when this package is used as a library
