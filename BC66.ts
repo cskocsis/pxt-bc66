@@ -1,7 +1,7 @@
 /**
  * BC66 blocks
  */
-//% weight=100 color=#1eadf8 icon="\uf1d8" block="BC66"
+//% weight=100 color=#e60073 icon="\uf1d8" block="BC66"
 namespace BC66 {
     const DEBUG = false
     const enum NbiotEvents {
