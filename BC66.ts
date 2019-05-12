@@ -12,7 +12,7 @@ namespace BC66 {
     let lines: string[] = []
     let socket = -1
     let serverIp = "188.166.45.215"
-    let serverPort = 41234
+    let serverPort = 41235
     let awaitingResponse = false
     let _isConnected = false
     const connectCallbacks: (() => void)[] = []
@@ -145,7 +145,7 @@ namespace BC66 {
     }
 
     /**
-     * Receive a message on port 41234
+     * Receive a message on port 41235
      */
     //% blockId=nbiot_on_receive_string
     //% block="on nbiot received"
@@ -247,7 +247,7 @@ namespace BC66 {
         control.onEvent(NbiotEvents.ID, NbiotEvents.RECEIVED_MSG, () => {
             const length = receivedMessageLength
             receivedMessageLength = 0
-            writeCommand(`AT+NSORF=${socket},${length}`)
+            writeCommand(`AT+QSORF=${socket},${length}`)
             // <socket>,"<ip_addr>",<port>,<length>,"<data>",<remaining_length>
             let fields = split(readLine(), ",")
             let received = parseInt(fields[3])
@@ -294,7 +294,7 @@ namespace BC66 {
     //% advanced=true
     export function createSocket() {
         writeCommand(`AT+QSOC=1,2,1`)
-        writeCommand(`AT+QSOCON=0,41234,"188.166.45.215"`)
+        writeCommand(`AT+QSOCON=0,41235,"188.166.45.215"`)
         socket = parseInt(readLine())
     }
 
@@ -392,7 +392,7 @@ namespace BC66 {
             return
         }
         let lastLine = lines[lines.length - 1]
-        if (lastLine.indexOf("+NSONMI") == 0) {
+        if (lastLine.indexOf("+QSONMI") == 0) {
             // +NSONMI: <socket>,<length>
             receivedMessageLength = parseInt(split(lastLine, ",")[1])
             if (receivedMessageLength > 0) {
