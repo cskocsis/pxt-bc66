@@ -14,7 +14,7 @@ namespace BC66 {
     let serverIp = "188.166.45.215"
     let serverPort = 41235
     let awaitingResponse = false
-    let _isConnected = true
+    let _isConnected = false
     const connectCallbacks: (() => void)[] = []
 
     /**
@@ -50,6 +50,9 @@ namespace BC66 {
         serial.writeString("AT\r")
         basic.pause(100)
         reboot()
+
+        // Echo mode OFF
+        writeCommand("ATE0")
 
         // enable more detailed errors
         writeCommand("AT+CMEE=1")
@@ -471,8 +474,8 @@ namespace BC66 {
     function checkConnection(): number {
         writeCommand("AT+CEREG?")
         let response = readLine()
-     //   return parseInt(response.charAt(10))
-        return 1
+        return parseInt(response.charAt(10))
+     //   return 1
     }
 
     function die(): boolean {
