@@ -53,12 +53,15 @@ namespace BC66 {
 
         // enable more detailed errors
         writeCommand("AT+CMEE=1")
+ 
+        // Disable Sleep Mode
+        writeCommand("AT+QSCLK=0")
 
         // disable eDRX
-        writeCommand("AT+CEDRXS=3,5")
+        writeCommand("AT+CEDRXS=0")
 
         // disable Power Save Mode
-        writeCommand("AT+CPSMS=2")
+        writeCommand("AT+CPSMS=0")
 
         // trigger on connect callbacks
         control.inBackground(() => {
@@ -211,7 +214,7 @@ namespace BC66 {
             return
         }
         ensureSocket()
-        writeCommand(`AT+NSOST=${socket},"${serverIp}",${serverPort},${buffer.length},"${buffer.toHex()}"`)
+        writeCommand(`AT+QSOSEND=${socket},${buffer.length},"${buffer.toHex()}"`)
     }
 
     /**
