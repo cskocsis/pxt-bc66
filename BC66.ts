@@ -53,7 +53,7 @@ namespace BC66 {
 
         // enable more detailed errors
         writeCommand("AT+CMEE=1")
- 
+
         // Disable Sleep Mode
         writeCommand("AT+QSCLK=0")
 
@@ -103,7 +103,7 @@ namespace BC66 {
      * @param ip The IP address to send data, eg: "188.166.45.215"
      * @param port The port to send data, eg: 41234
      */
-    //% blockId=nbiot_set_server
+    //% blockId=BC66_set_server
     //% block="set|server ip %ip port %port"
     //% port.min=0 port.max=65535
     //% weight = 20
@@ -116,7 +116,7 @@ namespace BC66 {
      * Execute custom code when we get a connection to the network
      * @param code The custom code block(s) to run when we get a connection
      */
-    //% blockId=nbiot_on_connected block="on nbiot connected"
+    //% blockId=BC66_on_connected block="on BC66 connected"
     //% weight = 30
     export function onConnected(code: () => void): void {
         connectCallbacks.push(code)
@@ -150,9 +150,9 @@ namespace BC66 {
     /**
      * Receive a message on port 41235
      */
-    //% blockId=nbiot_on_receive_string
-    //% block="on nbiot received"
-    //% blockHandlerKey="nbiotreceived"
+    //% blockId=BC66_on_receive_string
+    //% block="on BC66 received"
+    //% blockHandlerKey="BC66received"
     //% weight = 60
     export function onReceivedString(callback: (text: string) => void): void {
         onReceivedBuffer((buffer: Buffer) => {
@@ -169,9 +169,9 @@ namespace BC66 {
      * 
      * The number will be interpreted as a signed int in big endian format (max 32 bit)
      */
-    //% blockId=nbiot_on_receive_number
-    //% block="on nbiot received"
-    //% blockHandlerKey="nbiotreceived"
+    //% blockId=BC66_on_receive_number
+    //% block="on BC66 received"
+    //% blockHandlerKey="BC66received"
     //% weight = 61
     export function onReceivedNumber(callback: (num: number) => void): void {
         onReceivedBuffer((buffer: Buffer) => {
@@ -220,9 +220,9 @@ namespace BC66 {
     /**
      * Receive bytes on port 1234
      */
-    //% blockId=nbiot_on_receive_bytes
-    //% block="on nbiot received"
-    //% blockHandlerKey="nbiotreceived"
+    //% blockId=BC66_on_receive_bytes
+    //% block="on BC66 received"
+    //% blockHandlerKey="BC66received"
     //% weight = 80
     //% advanced=true
     export function onReceivedBytes(callback: (bytes: number[]) => void): void {
@@ -238,9 +238,9 @@ namespace BC66 {
     /**
      * Receive buffer on port 1234
      */
-    //% blockId=nbiot_on_receive_buffer
-    //% block="on nbiot received"
-    //% blockHandlerKey="nbiotreceived"
+    //% blockId=BC66_on_receive_buffer
+    //% block="on BC66 received"
+    //% blockHandlerKey="BC66received"
     //% weight = 81
     //% advanced=true
     export function onReceivedBuffer(callback: (buffer: Buffer) => void) {
@@ -309,7 +309,7 @@ namespace BC66 {
      * @param wait How long (in ms) to wait between a failed attempt and retrying, eg: 1000
      * @param timeout How long to wait for a response (in ms) before timing out, eg: 30000
      */
-    //% blockId=nbiot_write_command
+    //% blockId=nbiotBC66_write_command
     //% block="write command %cmd number of retries %retries wait between retries (ms) %wait timeout after (ms) %timeout"
     //% advanced=true
     export function writeCommand(cmd: string, retries = 3, wait = 1000, timeout = 30000): void {
