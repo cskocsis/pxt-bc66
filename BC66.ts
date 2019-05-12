@@ -300,8 +300,9 @@ namespace BC66 {
     //% advanced=true
     export function createSocket() {
         writeCommand(`AT+QSOC=1,2,1`)
-        writeCommand(`AT+QSOCON=0,41235,"188.166.45.215"`)
-        socket = parseInt(readLine())
+        let response = readLine()
+        socket = parseInt(response.charAt(6))
+        writeCommand(`AT+QSOCON=${socket},41235,"188.166.45.215"`)
     }
 
     /**
@@ -475,7 +476,7 @@ namespace BC66 {
         writeCommand("AT+CEREG?")
         let response = readLine()
         return parseInt(response.charAt(10))
-     //   return 1
+        //   return 1
     }
 
     function die(): boolean {
