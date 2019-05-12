@@ -471,7 +471,8 @@ namespace BC66 {
     function checkConnection(): number {
         writeCommand("AT+CEREG?")
         let response = readLine()
-        return parseInt(response.charAt(10))
+     //   return parseInt(response.charAt(10))
+        return 1
     }
 
     function die(): boolean {
