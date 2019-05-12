@@ -165,7 +165,7 @@ namespace BC66 {
     }
 
     /**
-     * Receive a number on port 41234
+     * Receive a number on port 41235
      * 
      * The number will be interpreted as a signed int in big endian format (max 32 bit)
      */
@@ -267,7 +267,7 @@ namespace BC66 {
 
     /**
      * Check if we're connected to the network
-     * Returns true if the SARA N2 has successfully
+     * Returns true if the BC66 has successfully
      * attached to the network, or false if not.
      */
     //% block
