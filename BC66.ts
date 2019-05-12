@@ -217,7 +217,8 @@ namespace BC66 {
             return
         }
         ensureSocket()
-        writeCommand(`AT+QSOSEND=0,${buffer.length},"${buffer.toHex()}"`)
+        // writeCommand(`AT+QSOSEND=0,${buffer.length},"${buffer.toHex()}"`)
+        writeCommand(`AT+QSOSEND=0,13,4d6963726f6269742042433636`)
     }
 
     /**
