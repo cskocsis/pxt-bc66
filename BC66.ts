@@ -303,7 +303,7 @@ namespace BC66 {
         writeCommand(`AT+QSOC=1,2,1`)
         let response = readLine()
         socket = parseInt(response.charAt(6))
-        writeCommand(`AT+QSOCON=0,${serverPort},${serverIp}`)
+        writeCommand(`AT+QSOCON=0,${serverPort},"${serverIp}"`)
     }
 
     /**
