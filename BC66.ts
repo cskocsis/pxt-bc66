@@ -14,7 +14,7 @@ namespace BC66 {
     let serverIp = "188.166.45.215"
     let serverPort = 41235
     let awaitingResponse = false
-    let _isConnected = false
+    let _isConnected = true
     const connectCallbacks: (() => void)[] = []
 
     /**
