@@ -1,4 +1,4 @@
-# pxt-microbit-bc66modem
+# pxt-bc66
 
 
 
