@@ -78,10 +78,7 @@ namespace BC66 {
                 basic.pause(100)
             })
         })
-        
-        // Synchronize Local Time
-        writeCommand("AT+QNTP=1,\"ntp5.aliyun.com\"")
-        
+       
     }
 
     /**
@@ -110,6 +107,9 @@ namespace BC66 {
     //% block
     //% weight = 13
     export function cdate(): string {
+        // Synchronize Local Time
+        writeCommand("AT+QNTP=1,\"ntp5.aliyun.com\"")
+        basic.pause(5000)
         writeCommand("AT+CCLK?")
         return readLine().substr(7, 10)
     }
