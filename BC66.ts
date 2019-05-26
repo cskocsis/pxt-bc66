@@ -287,7 +287,7 @@ namespace BC66 {
     //% advanced=true
     export function signalStrength(): number {
         writeCommand("AT+CSQ")
-        let power = parseInt(readLine().substr(6))
+        let power = parseInt(readLine().substr(6, 2))
         if (power == 99) {
             return 99
         }
