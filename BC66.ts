@@ -104,7 +104,7 @@ namespace BC66 {
         return readLine().substr(7, 15)
     }
 
-        /**
+    /**
      * Get the Current Date from the BC66
      */
     //% block
