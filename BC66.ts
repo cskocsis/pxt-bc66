@@ -78,6 +78,10 @@ namespace BC66 {
                 basic.pause(100)
             })
         })
+        
+        // Synchronize Local Time
+        writeCommand("AT+QNTP=1,\"ntp5.aliyun.com\"")
+        
     }
 
     /**
@@ -100,6 +104,16 @@ namespace BC66 {
         return readLine().substr(7, 15)
     }
 
+        /**
+     * Get the Current Date from the BC66
+     */
+    //% block
+    //% weight = 13
+    export function cdate(): string {
+        writeCommand("AT+CCLK?")
+        return readLine().substr(7, 10)
+    }
+    
     /**
      * Configure server IP address and port. When sending data,
      * it will be sent as an UPD message to this IP and port.
