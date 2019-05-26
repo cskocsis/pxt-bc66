@@ -15,7 +15,7 @@ Read more at https://makecode.microbit.org/packages/build-your-own
 
 ## Installation
 
-To use this extension, go to [makecode](https://makecode.microbit.org/) and edit or create a new project. Click the gear in the top right corner and «Extensions». Paste in the URL to this github repository: `https://github.com/cskocsis/pxt-microbit-bc66modem` and click on it so add it to the project. You should now see `NB-IoT` in the menu of available blocks.
+To use this extension, go to [makecode](https://makecode.microbit.org/) and edit or create a new project. Click the gear in the top right corner and «Extensions». Paste in the URL to this github repository: `https://github.com/cskocsis/pxt-bc66` and click on it so add it to the project. You should now see `NB-IoT` in the menu of available blocks.
 
 
 ## Wiring
